@@ -13,7 +13,7 @@ Con tu App podremos:
 
 ## Estructura
 
-Podemos observar que la estructura de carpetas es la siguiente:
+Agregar las carpetas actions, components, constants, middleware, reducers y store para que que la estructura de carpetas quede de la siguiente forma:
 
 ```bash.
 ├── public
@@ -64,7 +64,18 @@ Nuestra aplicación tiene que tener un set de rutas ya definido para hacer la pa
 
 ### Instrucciones
 
-#### Store
+1. Crear un reducer en la carpeta `reducers` que contenta un estado inicial de `peliculas` y por el momento que únicamente devuelva dicho estado. Recordar que es necesario pasarle una acción como segundo parámetro al reducer para indicarle que es lo que pretendemos que realice.
+
+2. Crear el archivo `index.js` dentro de la carpeta `store` e inicializarlo con el método `createStore` que reciba como parámetro el reducer previamente creado.
+
+3. Crear un archivo `index.js` dentro de la carpeta `actions` y dentro del mismo crear una acción que llamaremos `addMovie` para indicarle al reducr que queremos agregar una nueva película a nuestro listado. Recordemos que las acciones de Redux no son más que objetos Javascript con dos propiedades: `type` y `payload`. En nuestro caso el `type` va a ser el nombre de la acción que definiremos como `ADD_MOVIE` y el payload contendrá los datos de dicha película.
+
+4. [Opcional] Una buena práctica consiste en definir los nombres de las acciones que son strings dentro de un archivo destinado a constantes para evitar errores de tipeo o duplicados, por lo tanto crear un archivo denominado `action-types.js` en la carpeta `constants` y definir allí una constante para utilizar en la acción recién creada (No olvidarse de actualizar el archivo de `actions`).
+
+5. Actualizar el reducer para que si la acción que recibe es la de `ADD_MOVIE`, agregue al estado de la aplicación la película que se encuentra en su payload. [Investigar el principio de inmutabilidad de Redux para encontrar la forma correcta de agregar un nuevo elemento al array del estado inicial]
+
+6. Ahora debemos conectar Redux con nuestra aplicación de React. 
+
 
 ### Extras
 
