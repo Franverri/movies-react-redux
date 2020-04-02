@@ -18,12 +18,17 @@ Podemos observar que la estructura de carpetas es la siguiente:
 ```bash.
 ├── public
 ├── src
+│   ├── /actions
+│   ├── /components
+│   ├── /constants
+│   ├── /middleware
+│   ├── /reducers
+│   ├── /store
 │   ├── App.css
 │   ├── App.js
 │   ├── App.test.js
 │   ├── index.css
-│   ├── index.js
-│   ├── logo.svg
+│   ├── index.jss
 │   ├── serviceWorker.js
 │   └── setupTests.js
 ├── .gitignore
@@ -32,13 +37,15 @@ Podemos observar que la estructura de carpetas es la siguiente:
 └── README.md
 ```
 
-* __dist__: Carpeta destino del output de webpack.
 * __src__: Carpeta donde estará el código fuente del front-end de nuestra app.
-    * __assets__: Imágenes y otros archivos estáticos.
+    * __actions__: Imágenes y otros archivos estáticos.
     * __components__: Todos nuestros componentes de REACT junto con su CSS.
-    * __containers__: Nuestros containers de REACT.
-    * __redux__:  Todo lo relacionado con redux.
-    * __utils__: Funciones comunes a todos, si es que hay.
+    * __constants__: Constantes a utilizar por la aplicación
+    * __middleware__:  Intermediario que va a ser utilizado para validaciones
+    * __reducers__: Todos los reducers definidos irán aquí
+    * __store__: Mantiene todo el estado de la aplicación
+    * __App.js__: Aplicación principal
+    * __index.js__: Punto de partida de nuestra aplicación
 
 Antes de empezar a codear, vamos a pensar un diseño para nuestra página y hacer una lista con los __componentes__ y __containers__ que vamos a tener.
 Empezaremos por los más pequeños y simples (los puramente presentacionales sobre todo).
