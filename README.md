@@ -1,68 +1,66 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Redux OMDB APP
 
-## Available Scripts
+En este ejercicio vamos a crear una APP que utilice la API de [OMDB](http://www.omdbapi.com/). Vamos a crear nuestra app utilizando __REACT__ y __REDUX__.
 
-In the project directory, you can run:
+> Vamos a necesitar una APIKEY ya que la API de OMDB es paga. Usen `apikey=20dac387`
 
-### `npm start`
+Con tu App podremos:
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+* Buscar películas y listarlas.
+* Poder ver todos los detalles de una película en particular.
+* Poder agregar las películas a tu lista de favoritos.
+* Poder sacar películas de tu lista de favoritos.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## Estructura
 
-### `npm test`
+Podemos observar que la estructura de carpetas es la siguiente:
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```bash.
+├── public
+├── src
+│   ├── App.css
+│   ├── App.js
+│   ├── App.test.js
+│   ├── index.css
+│   ├── index.js
+│   ├── logo.svg
+│   ├── serviceWorker.js
+│   └── setupTests.js
+├── .gitignore
+├── package-lock.json
+├── package.json
+└── README.md
+```
 
-### `npm run build`
+* __dist__: Carpeta destino del output de webpack.
+* __src__: Carpeta donde estará el código fuente del front-end de nuestra app.
+    * __assets__: Imágenes y otros archivos estáticos.
+    * __components__: Todos nuestros componentes de REACT junto con su CSS.
+    * __containers__: Nuestros containers de REACT.
+    * __redux__:  Todo lo relacionado con redux.
+    * __utils__: Funciones comunes a todos, si es que hay.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Antes de empezar a codear, vamos a pensar un diseño para nuestra página y hacer una lista con los __componentes__ y __containers__ que vamos a tener.
+Empezaremos por los más pequeños y simples (los puramente presentacionales sobre todo).
+Cuando nos toque crear un __container__ de _Redux_ pensaremos las props del _Estado_ que vamos a mapear al container y las acciones que van a disparar. Luego codearemos primero las acciones, luego los reducers y por último el Container.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+### Rutas
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Nuestra aplicación tiene que tener un set de rutas ya definido para hacer la pagina navegable.
 
-### `npm run eject`
+* `/`: la ruta de home que tiene un input para hacer la búsqueda.
+* `/search`: tiene que mostrar los resultados de la búsqueda (un listado de resultados).
+* `/movie/:movieId`: muestra los detalles de una película en particular.
+* `/favs/`: muestra un listado de las películas favoritas, (cuando tengamos usuarios puede que esta ruta cambie).
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+> Para poder emular lo de guardar a favoritos, vamos a guardar las películas favoritas en el __Estado__ de nuestra aplicación.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Instrucciones
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+#### Store
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Extras
 
-## Learn More
+Si terminaste rápido intentá implementar animaciones con estos [addOns](https://facebook.github.io/react/docs/animation.html) de React.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+También pueden diferenciar la búsqueda entre series y películas, ¿esto implicaría crear otra ruta?
