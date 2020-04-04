@@ -74,7 +74,26 @@ Nuestra aplicación tiene que tener un set de rutas ya definido para hacer la pa
 
 5. Actualizar el reducer para que si la acción que recibe es la de `ADD_MOVIE`, agregue al estado de la aplicación la película que se encuentra en su payload. [Investigar el principio de inmutabilidad de Redux para encontrar la forma correcta de agregar un nuevo elemento al array del estado inicial]
 
-6. Ahora debemos conectar Redux con nuestra aplicación de React. 
+6. Ahora debemos conectar Redux con nuestra aplicación de React. Agregar un `Provider` del módulo de `react-redux` en nuestra aplicación (Archivo `App.js` de la carpeta `src`) para que la aplicación de React tenga conocimiento del store de Redux.
+
+7. Crear los componentes que crean necesarios para el frontend de nuestra aplicación. El diseño de la misma debe ser algo similar a:
+
+*AGREGAR IMAGEN*
+
+8. Conectar el estado del store donde se encuentra el listado de películas con el componente que corresponda utilizando `mapStateToProps` y mapearlo para que se visualicen dentro de dicho componente.
+
+9. Crear un formulario conectado que va a ser el encargado de agregar nuevas películas al estado global de la aplicación utilizando `mapDispatchToProps`. [Por el momento nos olvidaremos de la API y lo haremos de forma manual para verificar que funcione correctamente por lo que tendremos que tomar los valores de la película de un input]
+
+__STOP__
+
+* A esta altura del ejercicio, antes de continuar agregando más funcionalidad, deberíamos ya poder correr nuestra aplicación y controlar que la conexión entre nuestros componentes de React y el estado global de la aplicación manejado con Redux. Deberían lograr lo siguiente (Sin considerar cuestiones estéticas en nuestro caso):
+
+*AGREGAR GIF DE APP AGREGANDO PELICULAS A LA LISTA*
+
+__CONTINUEMOS__
+
+10. 
+
 
 
 ### Extras
