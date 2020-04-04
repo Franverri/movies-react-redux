@@ -64,40 +64,58 @@ Nuestra aplicación tiene que tener un set de rutas ya definido para hacer la pa
 
 ### Instrucciones
 
-1. Crear un reducer en la carpeta `reducers` que contenta un estado inicial de `peliculas` y por el momento que únicamente devuelva dicho estado. Recordar que es necesario pasarle una acción como segundo parámetro al reducer para indicarle que es lo que pretendemos que realice.
+1. Crear un reducer en la carpeta `reducers` que contenta un estado inicial de `favoritos` y por el momento que únicamente devuelva dicho estado. Recordar que es necesario pasarle una acción como segundo parámetro al reducer para indicarle que es lo que pretendemos que realice.
 
 2. Crear el archivo `index.js` dentro de la carpeta `store` e inicializarlo con el método `createStore` que reciba como parámetro el reducer previamente creado.
 
-3. Crear un archivo `index.js` dentro de la carpeta `actions` y dentro del mismo crear una acción que llamaremos `addMovie` para indicarle al reducr que queremos agregar una nueva película a nuestro listado. Recordemos que las acciones de Redux no son más que objetos Javascript con dos propiedades: `type` y `payload`. En nuestro caso el `type` va a ser el nombre de la acción que definiremos como `ADD_MOVIE` y el payload contendrá los datos de dicha película.
+3. Crear un archivo `index.js` dentro de la carpeta `actions` y dentro del mismo crear una acción que llamaremos `addFavorito` para indicarle al reducer que queremos agregar una nueva película a nuestro listado de favoritos. Recordemos que las acciones de Redux no son más que objetos Javascript con dos propiedades: `type` y `payload`. En nuestro caso el `type` va a ser el nombre de la acción que definiremos como `ADD_FAVORITO` y el payload contendrá los datos de dicha película.
 
 4. [Opcional] Una buena práctica consiste en definir los nombres de las acciones que son strings dentro de un archivo destinado a constantes para evitar errores de tipeo o duplicados, por lo tanto crear un archivo denominado `action-types.js` en la carpeta `constants` y definir allí una constante para utilizar en la acción recién creada (No olvidarse de actualizar el archivo de `actions`).
 
-5. Actualizar el reducer para que si la acción que recibe es la de `ADD_MOVIE`, agregue al estado de la aplicación la película que se encuentra en su payload. [Investigar el principio de inmutabilidad de Redux para encontrar la forma correcta de agregar un nuevo elemento al array del estado inicial]
+5. Actualizar el reducer para que si la acción que recibe es la de `ADD_FAVORITO`, agregue al estado de la aplicación la película que se encuentra en su payload. [Investigar el principio de inmutabilidad de Redux para encontrar la forma correcta de agregar un nuevo elemento al array del estado inicial]
 
 6. Ahora debemos conectar Redux con nuestra aplicación de React. Agregar un `Provider` del módulo de `react-redux` en nuestra aplicación (Archivo `App.js` de la carpeta `src`) para que la aplicación de React tenga conocimiento del store de Redux.
 
 7. Crear los componentes que crean necesarios para el frontend de nuestra aplicación. El diseño de la misma debe ser algo similar a:
 
-*AGREGAR IMAGEN*
+<div style="text-align:center"><img width=350 src="img/app-inicial.png"/></div><br>
 
-8. Conectar el estado del store donde se encuentra el listado de películas con el componente que corresponda utilizando `mapStateToProps` y mapearlo para que se visualicen dentro de dicho componente.
+8. Conectar el estado del store donde se encuentra el listado de películas favoritas con el componente que corresponda utilizando `mapStateToProps` y mapearlo para que se visualicen dentro de dicho componente.
 
 9. Crear un formulario conectado que va a ser el encargado de agregar nuevas películas al estado global de la aplicación utilizando `mapDispatchToProps`. [Por el momento nos olvidaremos de la API y lo haremos de forma manual para verificar que funcione correctamente por lo que tendremos que tomar los valores de la película de un input]
 
 __STOP__
 
-* A esta altura del ejercicio, antes de continuar agregando más funcionalidad, deberíamos ya poder correr nuestra aplicación y controlar que la conexión entre nuestros componentes de React y el estado global de la aplicación manejado con Redux. Deberían lograr lo siguiente (Sin considerar cuestiones estéticas en nuestro caso):
+* A esta altura del ejercicio, antes de continuar agregando más funcionalidad, deberíamos ya poder correr nuestra aplicación y comprobar la conexión entre nuestros componentes de React y el estado global de la aplicación manejado con Redux. Deberían lograr lo siguiente (Sin considerar cuestiones estéticas en nuestro caso):
 
-*AGREGAR GIF DE APP AGREGANDO PELICULAS A LA LISTA*
+<div style="text-align:center"><img src="img/agregar-pelicula.gif"/></div><br>
 
 __CONTINUEMOS__
 
-10. 
+10. Ahora queremos obtener un listado de películas desde la API y para ello deberán crear una nueva acción a la que llamaremos `getData`, que recibirá el como parámetro el input que ingrese el usuario como filtro de búsqueda.
 
+11. Modificar el reducer para que tome en cuenta esta nueva acción y guarde las películas recibidas en el estado global de la aplicación.
 
+11. Mostrar todas las películas que retorne la API en un nuevo componente.
+
+__STOP__
+
+Veamos que tenemos hasta el momento. Por un lado la primer parte que realizamos simula el agregado de películas a nuestro listado de favoritos (Hasta el momento lo estamos realizando manualemnte ingresando el título de la película que queremos y clickeando el botón de `AGREGAR`). Por otro lado en la segunda parte logramos obtener todas las películas provenientes de la API a partir de un título ingresado en el formulario.
+
+Por lo tanto el siguiente paso consistiría en actulizar el componente donde renderizamos cada película para agregar la posibilidad de clickear un botón y que la misma sea agregada o quitada directamente de la lista de favoritos.
+
+__CONTINUEMOS__
+
+12. Agregar un botón de favorito a cada película del listado general y que al clikearlo se añada a la lista de favoritos y otro botón en la lista de favoritos para quitarlas de allí al hacer click.
+
+13. Mejorar la interfaz de usuario. Hasta el momento tenemos renderizados todos los componentes en una misma página por lo que ahora convendría separarlo en distintas rutas según lo indicado en el apartado de `rutas` de este documento
+
+14. Permitir clickear una película para acceder a la información completa de la misma
 
 ### Extras
 
-Si terminaste rápido intentá implementar animaciones con estos [addOns](https://facebook.github.io/react/docs/animation.html) de React.
+* Agregar un middleware que valide que las películas que estemos agregando a favoritos no esten ya incluidas
 
-También pueden diferenciar la búsqueda entre series y películas, ¿esto implicaría crear otra ruta?
+* Implementar animaciones con estos [addOns](https://facebook.github.io/react/docs/animation.html) de React.
+
+* Diferenciar la búsqueda entre series y películas, ¿esto implicaría crear otra ruta?
