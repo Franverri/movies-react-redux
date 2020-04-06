@@ -104,6 +104,8 @@ Veamos que tenemos hasta el momento. Por un lado la primer parte que realizamos 
 
 Por lo tanto el siguiente paso consistiría en actulizar el componente donde renderizamos cada película para agregar la posibilidad de clickear un botón y que la misma sea agregada o quitada directamente de la lista de favoritos.
 
+<div style="text-align:center"><img src="img/add-to-fav.gif"/></div><br>
+
 __CONTINUEMOS__
 
 12. Agregar un botón de favorito a cada película del listado general y que al clikearlo se añada a la lista de favoritos y otro botón en la lista de favoritos para quitarlas de allí al hacer click.
