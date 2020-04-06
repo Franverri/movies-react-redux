@@ -92,7 +92,7 @@ __STOP__
 
 __CONTINUEMOS__
 
-10. Ahora queremos obtener un listado de películas desde la API y para ello deberán crear una nueva acción a la que llamaremos `getData`, que recibirá el como parámetro el input que ingrese el usuario como filtro de búsqueda.
+10. Ahora queremos obtener un listado de películas desde la API (Consultar la documentación [acá](http://www.omdbapi.com/)) y para ello deberán crear una nueva acción a la que llamaremos `getData`, que recibirá el como parámetro el input que ingrese el usuario como filtro de búsqueda. [Recordar la utilización de un middlewares para manejar correctamente los request http]
 
 11. Modificar el reducer para que tome en cuenta esta nueva acción y guarde las películas recibidas en el estado global de la aplicación.
 
@@ -110,11 +110,21 @@ __CONTINUEMOS__
 
 13. Mejorar la interfaz de usuario. Hasta el momento tenemos renderizados todos los componentes en una misma página por lo que ahora convendría separarlo en distintas rutas según lo indicado en el apartado de `rutas` de este documento
 
-14. Permitir clickear una película para acceder a la información completa de la misma
+14. Permitir clickear una película para acceder a la información completa de la misma y que redirija a la ruta `/movie/:movieId`. El ID de la película es el de OMDB y con el debemos realizar un request a la API para obtener los siguientes datos de dicha película:
+
+  * Título [Title]
+  * Año [Year]
+  * Calificación [Rated]
+  * Fecha de Estreno [Released]
+  * Duración [Runtime]
+  * Género [Genre]
+  * Descripicón [Plot]
+  * Actores [Actors]
+  * Puntuación [imdbRating]
 
 ### Extras
 
-* Agregar un middleware que valide que las películas que estemos agregando a favoritos no esten ya incluidas
+* Agregar un custom middleware que valide que las películas que estemos agregando a favoritos no esten ya incluidas
 
 * Implementar animaciones con estos [addOns](https://facebook.github.io/react/docs/animation.html) de React.
 
